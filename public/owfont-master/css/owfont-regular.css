@@ -38,9 +38,12 @@
 .owf-4x {
   font-size: 5em;
 }
+
+
 .owf-5x {
   font-size: 10em;
 }
+
 .owf-fw {
   width: 1.28571429em;
   text-align: center;
@@ -555,4 +558,22 @@
 .owf-962-d:before,
 .owf-962-n:before {
   content: "\EE22";
+}
+
+@media screen and (max-width : 1019px) and (min-width: 768px) {
+  .owf-5x {
+    font-size: 8em;
+  }
+  .owf-4x {
+    font-size: 4em;
+  }
+}
+
+@media screen and ( max-width: 767px) and (min-width: 300px){
+  .owf-5x {
+    font-size: 7em;
+  }
+  .owf-4x {
+    font-size: 4em;
+  }
 }

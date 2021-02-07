@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 
 const MainCard = (props) => {
     const [date, setDate] = useState(new Date());
-
+    const { t, i18n } = useTranslation();
     useEffect(() => {
         let timerID = setInterval( () => tick(), 1000 );
 
@@ -26,7 +27,6 @@ const MainCard = (props) => {
     const weekdayName = new Date(ms).toLocaleString(props.language, {weekday: 'long'});
 
     return (
-        <div style={{width: '18rem'}}>
             <div>
                 <div className="mainCarTitile">{props.city}</div>
                 <div className="mainCardDayTimeAndName">
@@ -37,7 +37,19 @@ const MainCard = (props) => {
                     <div className="mainCardDayDegrees">{FormatType(props.weather.main.temp, props.degree)}</div>
                     <i className={imgURL}/>
                 </div>
-            </div>
+                <div className='weatherDiscriptionWrapper'>
+                    <div className="weatherDiscriptionRow">
+                        <div className="weatherDiscriptionRow-item">
+                            {`${t("feels-like")}:  ${Math.floor((props.weather.main.feels_like))}°`}
+                        </div>
+                        <div>{`${t("wind")}:  ${Math.floor((props.weather.wind.speed))} m/s`}</div>
+                    </div>
+                    <div className="weatherDiscriptionRow">
+                        <div>
+                            {`${t("Humidity")}:  ${Math.floor((props.weather.main.humidity))}%`}
+                        </div>
+                    </div>
+                </div>
         </div>
     );
 };

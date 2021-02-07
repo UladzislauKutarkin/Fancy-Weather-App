@@ -7,6 +7,7 @@ import microphone from '../assets/img/microphone.png'
 import WeatherCard from "./WeatherCard";
 import {API_BASE_URL, API_KEY} from "../apis/config";
 import MainCard from "./MainCard";
+import MapWrapper from "./MapWrapper";
 
 
 
@@ -104,40 +105,43 @@ export default (props) => {
             vector.classList.remove('rotated')
         } else {
             vector.classList.add('rotated')
+            props.onChangeBg()
+
         }
     }
 
     function chooseDegreeHandler(event) {
         let actives = document.getElementsByClassName('active-degree');
         let currentActive = actives[0];
-        if (currentActive)
-            currentActive.classList.remove("active-degree");
+        if (currentActive) {
+            currentActive.classList.remove("active-degree");}
         event.target.classList.toggle('active-degree')
-        if (degreeType === 'imp') {
+        if (degreeType === 'imperial') {
             setDegreeType('metric')
         } else {
-            setDegreeType('imp')
+            setDegreeType('imperial')
         }
     }
 
     function chooseLanguageHandlerRu(event) {
         let actives = document.getElementsByClassName('active');
         let currentActive = actives[0];
-        if (currentActive)
-            currentActive.classList.remove("active");
+        if (currentActive){
+            currentActive.classList.remove("active");}
+        setLanguage('ru')
         props.onChangeLanguage('ru')
         event.target.classList.toggle('active')
-        setLanguage('ru')
     }
 
     function chooseLanguageHandlerEn(event) {
         let actives = document.getElementsByClassName('active');
         let currentActive = actives[0];
-        if (currentActive)
-            currentActive.classList.remove("active");
+        if (currentActive){
+            currentActive.classList.remove("active");}
+        setLanguage('en')
         props.onChangeLanguage('en')
         event.target.classList.toggle('active')
-        setLanguage('en')
+
     }
 
     const {t, i18n} = useTranslation();
@@ -180,6 +184,7 @@ export default (props) => {
                     </div>
                 </form>
             </div>
+            <div className='WrapperMaps'>
             <div className="mainDayCard">
                 {weather[0] && <MainCard weather={weather[0]}
                                             degree={degreeType}
@@ -187,30 +192,35 @@ export default (props) => {
                                             city={city}
                 />}
             </div>
-            <div>
+                <MapWrapper/>
+            </div>
+            <div className='otherDayWrapper'>
+            <div className="otherDayCard">
                 {weather[0] && <WeatherCard weather={weather[1]}
                                             degree={degreeType}
                                             language={language}
                 />}
             </div>
-            <div>
+            <div className="otherDayCard">
                 {weather[1] && <WeatherCard weather={weather[2]}
                                             degree={degreeType}
                                             language={language}
                 />}
             </div>
-            <div>
+            <div className="otherDayCard">
                 {weather[2] && <WeatherCard weather={weather[3]}
                                             degree={degreeType}
                                             language={language}
                 />}
             </div>
-            <div>
+            <div className="otherDayCard">
                 {weather[3] && <WeatherCard weather={weather[4]}
                                             degree={degreeType}
                                             language={language}
                 />}
             </div>
+            </div>
+
         </Fragment>
     )
 }

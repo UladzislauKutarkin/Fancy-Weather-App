@@ -15,13 +15,13 @@ const WeatherCard = (props) => {
         this.value=0;
     }
     return (
-        <div style={{width: '18rem'}}>
             <div>
-                <div>{weekdayName}</div>
-                <div>{FormatType(props.weather.main.temp,props.degree)}</div>
+                <div className="otherDayTitle">{weekdayName}</div>
+                <div className="weatherOtherCardRow">
+                <div className="otherDayTemp">{FormatType(props.weather.main.temp, props.degree)}</div>
                 <i className={imgURL}/>
+                </div>
             </div>
-        </div>
     );
 };
 
