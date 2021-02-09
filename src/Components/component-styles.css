@@ -1,0 +1,704 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    position: relative;
+}
+.WrapperMaps{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 2%;
+}
+.Map{
+    width: 405px;
+    height: 405px;
+    position: absolute;
+}
+
+.mapWrapper{
+    width: 405px;
+    height: 405px;
+    display: flex;
+}
+
+
+.btn:hover{
+    cursor: pointer;
+    color: #f2f2f2;
+    box-shadow: 20px 50px 100px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(#C7D3DC,#5B798E);
+    transition: background 1s ease-out;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 17px;
+    text-transform: uppercase;
+
+}
+
+
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: 2s;
+    width: 100%;
+    height: 100%;
+}
+.img1{
+    z-index: -2;
+}
+.img2 {
+    z-index: -1;
+}
+
+.img3 {
+    z-index: -3;
+}
+
+.refresh-Button-Vector {
+    width: 15px;
+    height: 20px;
+}
+
+.refreshButton {
+    background: rgba(180, 184, 187, 0.4) url("../assets/img/refresh.png") no-repeat;
+    border-radius: 5px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.languageBtn {
+    background: rgba(76, 82, 85, 0.4);
+    border-radius: 5px;
+    width: 71px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active {
+    background: rgba(174, 181, 185, 0.5);
+}
+
+.rotated {
+    animation:spin 1s ease-in-out;
+}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.degreeButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(76, 82, 85, 0.4);
+    border-radius: 5px;
+}
+
+.active-degree {
+    background: rgba(174, 181, 185, 0.5);
+}
+
+.headerWrapper {
+    margin: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.headerElementsWrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0 1% 0 1%;
+}
+.searchFormWrapper{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-left: 40%;
+}
+
+.searchBtn {
+    background: rgba(174, 181, 185, 0.5);
+    border-radius: 5px;
+    width: 101px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    background: rgba(76, 82, 85, 0.4);
+    border: 1px solid rgba(228, 227, 227, 0.2);
+    box-sizing: border-box;
+    outline: none;
+    color: #FFFFFF;
+}
+.microphone {
+    width: 15px;
+    height: 17px;
+    position: absolute;
+    left: 50%;
+    top: 23%;
+}
+
+input::placeholder {
+    display: flex;
+    align-items: center;
+    font-feature-settings: 'cpsp' on;
+    color: #FFFFFF;
+}
+
+i {
+    width: 163px;
+    height: 100px;
+    color: #b0c9d4;
+}
+
+.mainDayCard{
+    height: 456px;
+    width: 597px;
+    padding: 2%;
+}
+.mainCarTitile{
+    font-size: 44px;
+    line-height: 54px;
+    padding-bottom: 10px;
+}
+
+.mainCardDay{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+.mainCardDayTimeAndName{
+    display: flex;
+}
+
+.mainCardTime{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    padding-left: 5%;
+}
+
+.mainCardDayDegrees{
+    font-size: 250px;
+    line-height: 373px;
+    text-transform: uppercase;
+}
+
+.weatherDiscriptionWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weatherDiscriptionRow{
+    display: flex;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 37px;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+.weatherDiscriptionRow-item{
+    margin-right: 10px;
+}
+
+.otherDayWrapper{
+    display: flex;
+    padding: 2%;
+    margin-top: 180px;
+}
+.otherDayTitle{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 22px;
+    line-height: 27px;
+}
+.otherDayCard{
+    padding: 0;
+    display: flex;
+}
+
+.weatherOtherCardRow{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.otherDayTemp{
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 98px;
+}
+i:hover {
+    animation: shake 1.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+}
+
+@media screen and (max-width : 1024px) and (min-width: 768px) {
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        position: absolute;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        color: #FFFFFF;
+        font-weight: bold;
+        line-height: 15px;
+        text-transform: uppercase;
+
+    }
+    .headerWrapper{
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .Map{
+        width: 250px;
+        height: 350px;
+    }
+    .mapWrapper{
+        width: 250px;
+        height: 250px;
+        display: flex;
+    }
+
+    .refresh-Button-Vector {
+        width: 15px;
+        height: 20px;
+    }
+
+    .refreshButton {
+        background: rgba(180, 184, 187, 0.4) url("../assets/img/refresh.png") no-repeat;
+        border-radius: 5px;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .languageBtn {
+        background: rgba(76, 82, 85, 0.4);
+        border-radius: 5px;
+        width: 60px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .active {
+        background: rgba(174, 181, 185, 0.5);
+    }
+
+    .rotated {
+        animation:spin 1s ease-in-out;
+    }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+    .degreeButtons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        background: rgba(76, 82, 85, 0.4);
+        border-radius: 5px;
+    }
+
+    .active-degree {
+        background: rgba(174, 181, 185, 0.5);
+    }
+
+    .headerWrapper {
+        margin: 2%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .headerElementsWrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 0 1% 0 1%;
+    }
+    .searchFormWrapper{
+        display: flex;
+
+        flex-direction: row;
+        position: relative;
+        margin-left: 20%;
+    }
+
+    .searchBtn {
+        background: rgba(174, 181, 185, 0.5);
+        border-radius: 5px;
+        width: 80px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input {
+        background: rgba(76, 82, 85, 0.4);
+        border: 1px solid rgba(228, 227, 227, 0.2);
+        box-sizing: border-box;
+        outline: none;
+        color: #FFFFFF;
+    }
+    .microphone {
+        width: 15px;
+        height: 17px;
+        position: absolute;
+        left: 50%;
+        top: 23%;
+    }
+
+    input::placeholder {
+        display: flex;
+        align-items: center;
+        font-feature-settings: 'cpsp' on;
+        color: #FFFFFF;
+    }
+
+    i {
+        width: 143px;
+        height: 90px;
+        color: #b0c9d4;
+    }
+
+    .mainDayCard{
+        height: 400px;
+        width: 350px;
+        padding: 2%;
+    }
+    .mainCarTitile{
+        font-size: 30px;
+        line-height: 45px;
+        padding-bottom: 10px;
+    }
+
+    .mainCardDay{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 29px;
+    }
+    .mainCardDayTimeAndName{
+        display: flex;
+    }
+
+    .mainCardTime{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 29px;
+        padding-left: 5%;
+    }
+
+    .mainCardDayDegrees{
+        font-size: 145px;
+        line-height: 215px;
+        text-transform: uppercase;
+    }
+
+    .weatherDiscriptionWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .weatherDiscriptionRow{
+        display: flex;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 25px;
+        text-transform: uppercase;
+        align-items: center;
+        justify-content: center;
+        padding: 2%;
+    }
+    .weatherDiscriptionRow-item{
+        margin-right: 10px;
+    }
+
+    .otherDayWrapper{
+        display: flex;
+        padding: 2%;
+        margin-top: 140px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .otherDayTitle{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .otherDayCard{
+        padding: 0;
+        display: flex;
+    }
+
+    .weatherOtherCardRow{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .otherDayTemp{
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 98px;
+    }
+}
+@media screen and ( max-width: 767px) and (min-width: 300px) {
+    .headerWrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+    }
+    .Map{
+        width: 250px;
+        height: 300px;
+    }
+    .mapWrapper{
+        margin-top: 25%;
+        padding-left: 2%;
+        width: 250px;
+        height: 200px;
+        display: flex;
+    }
+    .refresh-Button-Vector {
+        width: 15px;
+        height: 20px;
+    }
+
+    .refreshButton {
+        background: rgba(180, 184, 187, 0.4) url("../assets/img/refresh.png") no-repeat;
+        border-radius: 5px;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .languageBtn {
+        background: rgba(76, 82, 85, 0.4);
+        border-radius: 5px;
+        width: 60px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+    }
+
+    .active {
+        background: rgba(174, 181, 185, 0.5);
+    }
+
+    .rotated {
+        animation:spin 1s ease-in-out;
+    }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+    .degreeButtons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(76, 82, 85, 0.4);
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .active-degree {
+        background: rgba(174, 181, 185, 0.5);
+    }
+
+    .headerElementsWrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 0 2% 0 1%;
+    }
+    .searchFormWrapper{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        margin-left: 0;
+    }
+
+    .searchBtn {
+        background: rgba(174, 181, 185, 0.5);
+        border-radius: 5px;
+        width: 100px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .input-value{
+        width: 197px;
+    }
+    input {
+        background: rgba(76, 82, 85, 0.4);
+        border: 1px solid rgba(228, 227, 227, 0.2);
+        box-sizing: border-box;
+        outline: none;
+        color: #FFFFFF;
+
+    }
+    .microphone {
+        width: 15px;
+        height: 17px;
+        position: absolute;
+        left: 50%;
+        top: 23%;
+    }
+
+    input::placeholder {
+        display: flex;
+        align-items: center;
+        font-feature-settings: 'cpsp' on;
+        color: #FFFFFF;
+        font-size: 15px;
+    }
+
+    i {
+        width: 143px;
+        height: 90px;
+        color: #b0c9d4;
+    }
+
+    .mainDayCard{
+        height: 250px;
+        width: 300px;
+        padding: 2%;
+    }
+    .mainCarTitile{
+        font-size: 30px;
+        line-height: 45px;
+        padding-bottom: 10px;
+    }
+
+    .mainCardDay{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 29px;
+    }
+    .mainCardDayTimeAndName{
+        display: flex;
+    }
+
+    .mainCardTime{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 29px;
+        padding-left: 5%;
+    }
+
+    .mainCardDayDegrees{
+        font-size: 100px;
+        line-height: 150px;
+        text-transform: uppercase;
+    }
+
+    .weatherDiscriptionWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .weatherDiscriptionRow{
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .weatherDiscriptionRow-item{
+        margin-right: 10px;
+        display: flex;
+    }
+
+    .otherDayWrapper{
+        display: flex;
+        padding: 2%;
+        margin-top: 110px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .otherDayTitle{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .otherDayCard{
+        padding: 0;
+        display: flex;
+    }
+
+    .weatherOtherCardRow{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .otherDayTemp{
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 98px;
+    }
+}
