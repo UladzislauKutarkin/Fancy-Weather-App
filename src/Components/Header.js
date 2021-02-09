@@ -16,9 +16,9 @@ export default (props) => {
     const [weather, setWeather] = useState({});
     const [degreeType, setDegreeType] = useState('imperial');
     const [language, setLanguage] = useState("en");
-    const [city, setCity] = useState("Minsk")
+    const [city, setCity] = useState("Vitebsk")
     useEffect(() => {
-        fetch(`${API_BASE_URL}q=Minsk&units=${degreeType}&APPID=${API_KEY}`)
+        fetch(`${API_BASE_URL}q=Vitebsk&units=${degreeType}&APPID=${API_KEY}`)
             .then((res) => res.json())
             .then((result) => {
                 const dailyData = result.list.filter(reading => reading.dt_txt.includes("18:00:00"))
@@ -59,10 +59,14 @@ export default (props) => {
             language: 'en-GB',
         });
     };
+    let controller = new AbortController();
+    setTimeout(() => controller.abort(), 1000);
 
     function searchHandler() {
         if (finalTranscript !== '') {
-            fetch(`${API_BASE_URL}q=${query}&units=${degreeType}&APPID=${API_KEY}`)
+            fetch(`${API_BASE_URL}q=${query}&units=${degreeType}&APPID=${API_KEY}`, {
+                signal: controller.signal
+            })
                 .then((res) => res.json())
                 .then((result) => {
                     setQuery("");
@@ -71,7 +75,11 @@ export default (props) => {
                     const currentCity = result.city.name;
                     setCity(currentCity);
                 })
-        } else {
+                .catch(e => {
+                    console.warn(`Fetch 2 error: ${e.message}`)
+                    alert('Не корректно указан город')
+                })}
+                else {
             if (query === '') {
                 alert('Введите город для поиска')
             } else {
@@ -85,7 +93,11 @@ export default (props) => {
                         const currentCity = result.city.name;
                         setCity(currentCity)
                         console.log(dailyData);
-                    });
+                    })
+                    .catch(e => {
+                        console.warn(`Fetch 2 error: ${e.message}`)
+                        alert('Не корректно указан город')})
+
             }
         }
     }
@@ -110,18 +122,30 @@ export default (props) => {
         }
     }
 
-    function chooseDegreeHandler(event) {
-        let actives = document.getElementsByClassName('active-degree');
-        let currentActive = actives[0];
-        if (currentActive) {
-            currentActive.classList.remove("active-degree");}
-        event.target.classList.toggle('active-degree')
-        if (degreeType === 'imperial') {
-            setDegreeType('metric')
+    function chooseDegreeHandlerF(event) {
+        let Fbtn = document.querySelector('.F')
+        let Cbtn = document.querySelector('.C')
+        if(Fbtn.classList.contains('active-degree')){
+            Fbtn.classList.remove('active-degree')
         } else {
+            Fbtn.classList.add('active-degree')
             setDegreeType('imperial')
+            Cbtn.classList.remove('active-degree')
         }
     }
+    function chooseDegreeHandlerC(event) {
+        let Cbtn = document.querySelector('.C')
+        let Fbtn = document.querySelector('.F')
+        if(Cbtn.classList.contains('active-degree')){
+            Cbtn.classList.remove('active-degree')
+        } else {
+            Cbtn.classList.add('active-degree')
+            setDegreeType('metric')
+            Fbtn.classList.remove('active-degree')
+        }
+    }
+
+
 
     function chooseLanguageHandlerRu(event) {
         let actives = document.getElementsByClassName('active');
@@ -149,19 +173,19 @@ export default (props) => {
     return (
         <Fragment>
             <div className="headerWrapper">
-                <div className="refreshButton" onClick={refreshHandler}>
+                <div className="refreshButton btn" onClick={refreshHandler}>
                     <img src={refreshVector}
                          alt="refresh button vector"
                          className="refresh-Button-Vector"
                     />
                 </div>
                 <div className="headerElementsWrapper">
-                    <div onClick={chooseLanguageHandlerEn} className='languageBtn active'>En</div>
-                    <div onClick={chooseLanguageHandlerRu} className='languageBtn'>Ru</div>
+                    <div onClick={chooseLanguageHandlerEn} className='languageBtn active btn'>En</div>
+                    <div onClick={chooseLanguageHandlerRu} className='languageBtn btn'>Ru</div>
                 </div>
                 <div className="headerElementsWrapper">
-                    <div className='degreeButtons active-degree' onClick={chooseDegreeHandler}>°F</div>
-                    <div className='degreeButtons' onClick={chooseDegreeHandler}>°С</div>
+                    <div className='degreeButtons active-degree F btn' onClick={chooseDegreeHandlerF}>°F</div>
+                    <div className='degreeButtons C btn' onClick={chooseDegreeHandlerC}>°С</div>
                 </div>
                 <form className='searchFormWrapper'
                       onKeyDown={search}
@@ -172,12 +196,12 @@ export default (props) => {
                            onChange={changeValueHandler}
                            value={query}
                     />
-                    <img className='microphone' src={microphone}
+                    <img className='microphone btn' src={microphone}
                          alt='microphone'
                          onClick={listenContinuously}
                          onDoubleClick={SpeechRecognition.stopListening}
                     />
-                    <div className="searchBtn"
+                    <div className="searchBtn btn"
                          onClick={searchHandler}
                     >
                         {t("search")}

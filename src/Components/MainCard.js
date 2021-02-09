@@ -40,7 +40,7 @@ const MainCard = (props) => {
                 <div className='weatherDiscriptionWrapper'>
                     <div className="weatherDiscriptionRow">
                         <div className="weatherDiscriptionRow-item">
-                            {`${t("feels-like")}:  ${Math.floor((props.weather.main.feels_like))}°`}
+                            {`${t("feels-like")}:  ${FormatType(props.weather.main.feels_like, props.degree)}`}
                         </div>
                         <div>{`${t("wind")}:  ${Math.floor((props.weather.wind.speed))} m/s`}</div>
                     </div>

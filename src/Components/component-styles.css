@@ -24,22 +24,29 @@ html {
 .WrapperMaps{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
+    justify-content: space-between;
+    padding-right: 2%;
 }
 .Map{
     width: 405px;
     height: 405px;
+    position: absolute;
 }
 
 .mapWrapper{
-    padding: 100px 0 150px 150px;
     width: 405px;
     height: 405px;
+    display: flex;
 }
 
 
-
+.btn:hover{
+    cursor: pointer;
+    color: #f2f2f2;
+    box-shadow: 20px 50px 100px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(#C7D3DC,#5B798E);
+    transition: background 1s ease-out;
+}
 
 .wrapper {
     width: 100%;
@@ -128,6 +135,7 @@ html {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .headerElementsWrapper {
@@ -290,15 +298,18 @@ i:hover {
     .headerWrapper{
         display: flex;
         flex-wrap: wrap;
+
     }
     .Map{
         width: 250px;
+        height: 350px;
+    }
+    .mapWrapper{
+        width: 250px;
         height: 250px;
+        display: flex;
     }
 
-    .mapWrapper{
-        padding: 30% 0 10% 2%;
-    }
     .refresh-Button-Vector {
         width: 15px;
         height: 20px;
@@ -492,8 +503,20 @@ i:hover {
     .headerWrapper{
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
     }
-
+    .Map{
+        width: 250px;
+        height: 300px;
+    }
+    .mapWrapper{
+        margin-top: 25%;
+        padding-left: 2%;
+        width: 250px;
+        height: 200px;
+        display: flex;
+    }
     .refresh-Button-Vector {
         width: 15px;
         height: 20px;
@@ -544,12 +567,6 @@ i:hover {
         background: rgba(174, 181, 185, 0.5);
     }
 
-    .headerWrapper {
-        margin: 2%;
-        display: flex;
-        flex-direction: row;
-    }
-
     .headerElementsWrapper {
         display: flex;
         flex-direction: row;
@@ -560,14 +577,13 @@ i:hover {
         flex-direction: row;
         position: relative;
         margin-left: 0;
-        margin-top: 2%;
     }
 
     .searchBtn {
         background: rgba(174, 181, 185, 0.5);
         border-radius: 5px;
         width: 100px;
-        height: 34px;
+        height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -659,7 +675,7 @@ i:hover {
     .otherDayWrapper{
         display: flex;
         padding: 2%;
-        margin-top: 80px;
+        margin-top: 110px;
         flex-wrap: wrap;
         justify-content: center;
     }
